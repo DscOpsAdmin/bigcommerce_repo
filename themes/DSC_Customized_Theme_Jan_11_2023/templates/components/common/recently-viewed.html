@@ -1,0 +1,75 @@
+<h1 class="bcolor">run this html</h1>
+<div class="previewRecentViewWrapper">
+    <div class="previewCart">
+        {{#if customer}}
+        {{responseObj}}
+        {{customer.email}}
+        <!-- <ul class="previewCartList">
+            <li class="previewCartItem"> -->
+                <table>
+                    <tr>
+                        <td>Date:</td>
+                        <td id="viewed-date"></td>
+                    </tr>
+                </table>
+            <!-- </li>
+        </ul> -->
+        <!-- <article class="orderSummary">
+                <h3>Order Summary</h3>
+                <hr style="width:100%;text-align:left;margin-left:0">
+                <table>
+                    <tr>
+                        <td>Subtotal </td>
+                        <td id="api-subtotal"></td>
+                    </tr>
+                    <tr>
+                        <td>Shipping </td>
+                        <td id="api-shipping"></td>
+                    </tr>
+                    <tr  >
+                     
+                        <td>Tax </td>
+                        <td id="api-tax"></td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td id="api-total"></td>
+                    </tr>
+                </table>
+        </article> -->
+       
+        <!-- <ul class="previewCartList">
+            {{#each (limit customer.recently_viewed_products 2)}}
+            <li class="previewCartItem">
+
+                <h1>print product</h1>
+                   <div class="previewCartItem-image">
+                              {{> components/common/responsive-img
+                                  image=image
+                                  fallback_size=../theme_settings.productthumb_size
+                                  lazyload=../theme_settings.lazyload_mode
+                                  default_image=../theme_settings.default_image_product
+                              }}
+                      </div> 
+                   <div class="previewCartItem-content">
+                              <span class="previewCartItem-brand">
+                                  {{brand.name}}
+                              </span>
+  
+                              <h6 class="previewCartItem-name">
+                                  <a href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
+                              </h6>
+                          </div>
+            </li>
+            {{/each}}
+        </ul> -->
+        <div class="previewRecentViewAction">
+            <div class="previewRecentViewAction-RecentView">
+                <a href="/account.php?action=recent_items" class="button button--small button--action">
+                    {{lang 'account.recent_items.recent_items_btn'}}
+                </a>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>

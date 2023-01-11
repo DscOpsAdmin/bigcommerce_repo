@@ -1,0 +1,76 @@
+` 
+1. session {
+  access_token: '23xteo3wj2h7dky7njerlwz7ig2iszn',
+  scope: 'store_v2_default store_v2_orders store_v2_products users_basic_information',       
+  user: {
+    id: 2460818,
+    username: 'ops@dynasoftcloud.com',
+    email: 'ops@dynasoftcloud.com'
+  },
+  context: 'stores/l1m6wbgej9',
+  account_uuid: 'e80b6da4-50c3-4a30-ba14-6f3d68a0e3a6'
+}
+
+ auth() 1. encodedContext eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0IjoibDFtNndiZ2VqOSIsInVzZXIiOnsiaWQiOjI0NjA4MTgsInVzZXJuYW1lIjoib3BzQGR5bmFzb2Z0Y2xvdWQuY29tIiwiZW1haWwiOiJvcHNAZHluYXNvZnRjbG91ZC5jb20ifSwiaWF0IjoxNjY5OTY3MDk4LCJleHAiOjE2NzAwNTM0OTh9.xkPURZiK3ZiMscIVE1Z8cMgr1P3o1ZmUx9-P6nUvy3I
+ `
+------------------------------------------------------------------------------------------
+ `
+ load() 1. session {
+  aud: 'mzl2lrkfoiigwrvblc1je85s2d1dqd1',
+  iss: 'bc',
+  iat: 1669967397,
+  nbf: 1669967392,
+  exp: 1670053797,
+  jti: '2afd1fce-e714-4fb9-9a9b-db1ce74c8c7c',
+  sub: 'stores/l1m6wbgej9',
+  user: { id: 2460818, email: 'ops@dynasoftcloud.com', locale: 'en-US' },
+  owner: { id: 2460818, email: 'ops@dynasoftcloud.com' },
+  url: '/',
+  channel_id: null
+}
+ load() 2. encodedContext eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0IjoibDFtNndiZ2VqOSIsInVzZXIiOnsiaWQiOjI0NjA4MTgsImVtYWlsIjoib3BzQGR5bmFzb2Z0Y2xvdWQuY29tIiwibG9jYWxlIjoiZW4tVVMifSwib3duZXIiOnsiaWQiOjI0NjA4MTgsImVtYWlsIjoib3BzQGR5bmFzb2Z0Y2xvdWQuY29tIn0sImlhdCI6MTY2OTk2NzM5NCwiZXhwIjoxNjcwMDUzNzk0fQ._OxMiwZGudUya5dzELSjg5D-5DOOf3v5VfcV65hmZZk
+
+ `
+------------------------------------------------------------------------------------------
+`
+ auth() 1. session - TEST 1 {
+  access_token: 'nly9zqoqdqyatitd5pocz6tbx3re0au',
+  scope: 'store_v2_default store_v2_orders store_v2_products users_basic_information',       
+  user: {
+    id: 2460818,
+    username: 'ops@dynasoftcloud.com',
+    email: 'ops@dynasoftcloud.com'
+  },
+  context: 'stores/l1m6wbgej9',
+  account_uuid: 'e80b6da4-50c3-4a30-ba14-6f3d68a0e3a6'
+}
+ auth() 2. encodedContext - TEST 1 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0IjoibDFtNndiZ2VqOSIsInVzZXIiOnsiaWQiOjI0NjA4MTgsInVzZXJuYW1lIjoib3BzQGR5bmFzb2Z0Y2xvdWQuY29tIiwiZW1haWwiOiJvcHNAZHluYXNvZnRjbG91ZC5jb20ifSwiaWF0IjoxNjY5OTY3NjEwLCJleHAiOjE2NzAwNTQwMTB9.dFqyWCNe_JOCF6yNiq5zhzRmwpoH-gKCVW5iBvYf-Rc
+`
+------------------------------------------------------------------------------------------
+`
+load() 1. session - TEST 2 {
+  aud: 'mzl2lrkfoiigwrvblc1je85s2d1dqd1',
+  iss: 'bc',
+  iat: 1669968053,
+  nbf: 1669968048,
+  exp: 1670054453,
+  jti: 'a20797d8-2efa-4797-a1d9-c4cee6619659',
+  sub: 'stores/l1m6wbgej9',
+  user: { id: 2460818, email: 'ops@dynasoftcloud.com', locale: 'en-US' },
+  owner: { id: 2460818, email: 'ops@dynasoftcloud.com' },
+  url: '/',
+  channel_id: null
+}
+ load() 2. encodedContext - TEST 2 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0IjoibDFtNndiZ2VqOSIsInVzZXIiOnsiaWQiOjI0NjA4MTgsImVtYWlsIjoib3BzQGR5bmFzb2Z0Y2xvdWQuY29tIiwibG9jYWxlIjoiZW4tVVMifSwib3duZXIiOnsiaWQiOjI0NjA4MTgsImVtYWlsIjoib3BzQGR5bmFzb2Z0Y2xvdWQuY29tIn0sImlhdCI6MTY2OTk2ODA0OSwiZXhwIjoxNjcwMDU0NDQ5fQ.S3tELapGoMLxakQw5yQV5FHzp-6nEbcvfm6cUTzeOxs
+`
+------------------------------------------------------------------------------------------
+
+listener() :: req.body {
+  producer: 'stores/l1m6wbgej9',
+  hash: '81fa68862bbc629bca30cea785ec19fab37ce653',
+  created_at: 1671013499,
+  store_id: '1002671064',
+  scope: 'store/customer/updated',
+  data: { type: 'customer', id: 4, origin_channel_id: 1, channel_ids: [ 1 ] }
+}
+

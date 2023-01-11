@@ -1,0 +1,73 @@
+<article class="plp-order-summary" >
+    <div data-plp-cart>
+        <header>
+            <h3>Your Cart</h3>
+            <hr style="width:100%;text-align:left;margin-left:0">
+            <div id="plp-order-summary-products">No product found in cart</div>
+
+            <!-- Add to Cart with SKU - START -->
+            <hr style="width:100%;text-align:left;margin-left:0">
+            <table class="plp-order-summary-add-sku-to-cart">
+                <tr width="100%">
+                    <td width="50%" style="padding:2px;">
+                        <input type="text" size="20" placeholder="Quick add SKU" data-id="quick-add-item-sku"></input>
+
+                        <!-- Display SKU Search Results - START  -->
+                        <div class="items-search-results-container" data-id="sku-search-results-container">
+                            <!-- <ul class="items-search-results" data-id="sku-search-results">
+                                <li>ABS</li>
+                                <li>DPB</li>
+                            </ul> -->
+                        </div>
+                        <!-- Display SKU Search Results - END  -->
+                        
+                    </td>
+                    <td width="30%" style="padding:2px;">
+                        x <input type="number" min='0' max='999' data-id="quick-add-item-qty" />
+                    </td>
+                    <td align="left" width="20%" style="padding:2px;">
+                        <button class="quick-add-sku-button" data-class="quick-add-sku-button"><strong data-class="quick-add-sku-button">+</strong></button>
+                    </td>
+                </tr>
+                <!-- Display SKU Search Results - START  -->
+                <tr width="100%">
+                    <td width="50%" style="padding:2px;">
+                        <button class="quick-add-sku-button" data-class="search-matching-sku-results-btn">Search</button>
+                    </td>
+                    <td width="30%" style="padding:2px;"></td>
+                    <td align="left" width="20%" style="padding:2px;"></td>
+                </tr>
+                <!-- Display SKU Search Results - END  -->
+            </table>
+            <!-- Add to Cart with SKU - END -->
+            <hr style="width:100%;text-align:left;margin-left:0">
+            <table class="plp-order-summary-table" style="display:block;">
+                <tr class="plp-order-summary-row">
+                    <td width="100%">Total Items:</td>
+                    <td width="100%" id="api-total-items" class="plp-order-summary-column-value">
+                        <span>0</span>
+                    </td> 
+                </tr>
+                <tr class="plp-order-summary-row">
+                    <td width="100%">Subtotal:</td>
+                    <td width="100%" class="plp-order-summary-column-value">
+                        {{settings.money.currency_token}}<span id="api-subtotal">0.00</span>
+                    </td>
+                </tr>
+                <tr class="plp-order-summary-row">
+                    <td width="100%">Total Tax:</td>
+                    <td width="100%" class="plp-order-summary-column-value">
+                        {{settings.money.currency_token}}<span id="api-taxtotal">0.00</span>
+                    </td>
+                </tr>
+                <tr class="plp-order-summary-row">
+                    <td width="100%">Grand Total:</td>
+                    <td width="100%" class="plp-order-summary-column-value">
+                        {{settings.money.currency_token}}<span id="api-grandtotal">0.00</span>
+                    </td>
+                </tr>
+            </table>
+        </header>
+        <div class="loadingOverlay" style="display: none;"></div>
+    </div>
+</article>

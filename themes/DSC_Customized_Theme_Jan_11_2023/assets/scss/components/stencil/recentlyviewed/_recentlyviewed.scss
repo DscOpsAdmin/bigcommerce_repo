@@ -1,0 +1,39 @@
+.bcolor{
+    background-color: red;
+}
+.previewRecentViewWrapper {
+    max-height: calc(100vh - #{$card-preview-zoom-bottom-offset});
+    overflow: auto;
+}
+.previewRecentViewAction {
+    @include grid-row;
+    border-top: container("border");
+    display: block;
+
+    @include breakpoint("xxsmall") {
+        padding: spacing("half") spacing("quarter");
+    }
+
+    @include breakpoint("xsmall") {
+        padding: spacing("single") spacing("half");
+    }
+
+    .button {
+        margin: 0;
+        padding-left: spacing("half");
+        padding-right: spacing("half");
+        width: 100%;
+    }
+}
+.previewRecentViewAction-RecentView {
+    @include grid-column(10);
+    padding-left: spacing("quarter");
+/* 
+    &.previewRecentViewAction-RecentView--sole {
+        @include grid-column($columns: 6, $center: true);
+    } */
+}
+
+#recently-viewed-preview-dropdown {
+    padding: 5px;
+}
