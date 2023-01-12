@@ -2,7 +2,11 @@
   "customLayouts": {
     "brand": {},
     "category": {},
-    "page": {},
+    "page": {
+      "dcs-page-layout.html": "/dsc-theme-customizations",
+      "api-testing.html": "/api-testing/",
+      "customer-viewed-products.html": "/customer-viewed-products/"
+    },
     "product": {}
   },
   "normalStoreUrl": "https://ops-playground.mybigcommerce.com",

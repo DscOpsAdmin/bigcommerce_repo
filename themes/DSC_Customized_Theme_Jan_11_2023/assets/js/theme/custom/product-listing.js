@@ -140,6 +140,8 @@ export function updatePlpCart(actionName) {
                     }
                 }
             } else {
+                // $("[data-class='quick-add-sku-button']").removeClass("data-cart-id"); //Not Working
+                $("[data-class='quick-add-sku-button']").attr("data-cart-id", "");
                 $("#plp-order-summary-products").html("Your cart is empty");
                 $("#api-total-items").html("0");
                 $("#api-taxtotal").html("0.00");
@@ -171,56 +173,8 @@ export function plpCartBindEvents() {
             //Add to Cart with SKU - START
             else if (dataClass == "quick-add-sku-button") {
                 const cartId = $("[data-class='quick-add-sku-button']").attr("data-cart-id");
-                console.log(logTitle + "cartId", cartId);
-                if (cartId) {
-                    console.log(logTitle + "dataClass", dataClass);
-                    const quickAddItemSku = $("[data-id='quick-add-item-sku']").val();
-                    let quickAddItemQty = $("[data-id='quick-add-item-qty']").val();
-                    quickAddItemQty = quickAddItemQty ? parseFloat(quickAddItemQty) : 0;
-                    if (quickAddItemSku && quickAddItemQty) {
-                        if (quickAddItemQty > 0) {
-                            console.log(logTitle + "quickAddItemSku", quickAddItemSku);
-                            console.log(logTitle + "quickAddItemQty", quickAddItemQty);
-                            let $overlay = $('[data-plp-cart] .loadingOverlay');
-                            $overlay.show();
-                            getAllProducts("l1m6wbgej9", "t1v78525y56m540j8kx7rrzoa4cc32u")
-                                .then(response => response.json())
-                                .then(getProductsResponseObj => {
-                                    console.log(logTitle + "getProductsResponseObj", getProductsResponseObj)
-                                    let productsSkuMapObj = {};
-                                    if (getProductsResponseObj && getProductsResponseObj.data) {
-                                        for (let productIndex in getProductsResponseObj.data) {
-                                            let productsObj = getProductsResponseObj.data[productIndex];
-                                            for (let productVariantIndex in productsObj.variants) {
-                                                let productVariantObj = productsObj.variants[productVariantIndex];
-                                                if (productVariantObj.sku && !productsSkuMapObj[productVariantObj.sku]) productsSkuMapObj[productVariantObj.sku] = productVariantObj;
-                                            }
-                                        }
-                                        console.log(logTitle + "productsSkuMapObj", productsSkuMapObj);
-                                        console.log(logTitle + "productsSkuMapObj[quickAddItemSku]", productsSkuMapObj[quickAddItemSku]);
-                                        if (productsSkuMapObj[quickAddItemSku]) {
-                                            addCartItem(cartId, productsSkuMapObj[quickAddItemSku].product_id, productsSkuMapObj[quickAddItemSku].id, quickAddItemQty, $overlay)
-                                        } else {
-                                            alert("Provided SKU does not exist!")
-                                            $overlay.hide();
-                                        }
-
-                                    } else {
-                                        $overlay.hide();
-                                    }
-
-                                })
-                                .catch(error => {
-                                    console.error(logTitle + "error", error);
-                                    $overlay.hide();
-                                });
-                        } else {
-                            alert("Quantity must be greater than zero");
-                        }
-                    } else {
-                        alert("Please specify both SKU & item quantity")
-                    }
-                }
+                console.log(logTitle + "cartId 1", cartId);
+                performQuickAddSkuOperations(cartId, dataClass);
             }
             //Display SKU Search Results - START
             else if (dataClass == "search-matching-sku-results-btn") {
@@ -431,9 +385,105 @@ function deleteCartItem(cartId, cartItemId) {
                     console.log(logTitle + "reequest catch error", error)
                     // setTimeout(() => {
                     updatePlpCart('update_cart');
-                    // }, 5000);
+                    // }, 2000);
                 }
             );
+    } catch (e) {
+        console.error("ERROR IN" + logTitle, e);
+    }
+}
+
+function performQuickAddSkuOperations(cartId, dataClass) {
+    const logTitle = " performQuickAddSkuOperations() ";
+    try {
+        console.log(logTitle + "dataClass", dataClass);
+        const quickAddItemSku = $("[data-id='quick-add-item-sku']").val();
+        let quickAddItemQty = $("[data-id='quick-add-item-qty']").val();
+        quickAddItemQty = quickAddItemQty ? parseFloat(quickAddItemQty) : 0;
+        if (quickAddItemSku && quickAddItemQty) {
+            if (quickAddItemQty > 0) {
+                console.log(logTitle + "quickAddItemSku", quickAddItemSku);
+                console.log(logTitle + "quickAddItemQty", quickAddItemQty);
+                let $overlay = $('[data-plp-cart] .loadingOverlay');
+                $overlay.show();
+                getAllProducts("l1m6wbgej9", "t1v78525y56m540j8kx7rrzoa4cc32u")
+                    .then(response => response.json())
+                    .then(getProductsResponseObj => {
+                        console.log(logTitle + "getProductsResponseObj", getProductsResponseObj);
+                        let productsSkuMapObj = {};
+                        if (getProductsResponseObj && getProductsResponseObj.data) {
+                            for (let productIndex in getProductsResponseObj.data) {
+                                let productsObj = getProductsResponseObj.data[productIndex];
+                                for (let productVariantIndex in productsObj.variants) {
+                                    let productVariantObj = productsObj.variants[productVariantIndex];
+                                    if (productVariantObj.sku && !productsSkuMapObj[productVariantObj.sku]) productsSkuMapObj[productVariantObj.sku] = productVariantObj;
+                                }
+                            }
+                            console.log(logTitle + "productsSkuMapObj", productsSkuMapObj);
+                            console.log(logTitle + "productsSkuMapObj[quickAddItemSku]", productsSkuMapObj[quickAddItemSku]);
+                            if (productsSkuMapObj[quickAddItemSku]) {
+                                console.log(logTitle + "cartId", cartId);
+                                if (cartId) {
+                                    addCartItem(cartId, productsSkuMapObj[quickAddItemSku].product_id, productsSkuMapObj[quickAddItemSku].id, quickAddItemQty, $overlay);
+                                } else {
+                                     const requestBodyLineItems = [{
+                                        "productId": productsSkuMapObj[quickAddItemSku].product_id,
+                                        "variantId": productsSkuMapObj[quickAddItemSku].id,
+                                        "quantity": quickAddItemQty
+                                    }];
+                                    createCart(requestBodyLineItems, $overlay);
+                                }
+                            } else {
+                                alert("Provided SKU does not exist!")
+                                $overlay.hide();
+                            }
+
+                        } else {
+                            $overlay.hide();
+                        }
+
+                    })
+                    .catch(error => {
+                        console.error(logTitle + "error", error);
+                        $overlay.hide();
+                    });
+            } else {
+                alert("Quantity must be greater than zero");
+            }
+        } else {
+            alert("Please specify both SKU & item quantity")
+        }
+    } catch (e) {
+        console.error("ERROR IN" + logTitle, e);
+    }
+}
+
+function createCart(requestBodyLineItems) {
+    const logTitle = " createCart() ";
+    try {
+        var requestBody = {
+            "lineItems": requestBodyLineItems
+        };
+        var requestUrl = "/api/storefront/carts";
+        console.log('requestUrl', requestUrl)
+        fetch(requestUrl, {
+            method: "POST",
+            credentials: "same-origin",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestBody)
+        })
+        .then(response => response.json())
+        .then(createCartResponseBody => {
+            console.log(logTitle+"createCartResponseBody", createCartResponseBody);
+            if (createCartResponseBody.id) {
+                updatePlpCart('update_cart')
+            }            
+        })
+        .catch(error => {
+            $overlay.hide();
+        });
     } catch (e) {
         console.error("ERROR IN" + logTitle, e);
     }

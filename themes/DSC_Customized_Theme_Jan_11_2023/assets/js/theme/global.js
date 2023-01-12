@@ -25,7 +25,7 @@ export default class Global extends PageManager {
         } = this.context;
         cartPreview(secureBaseUrl, cartId);
         recentlyViewed(this.context);
-        customerViewedProducts(this.context);
+        // customerViewedProducts(this.context);
         quickSearch();
         currencySelector(cartId);
         foundation($(document));

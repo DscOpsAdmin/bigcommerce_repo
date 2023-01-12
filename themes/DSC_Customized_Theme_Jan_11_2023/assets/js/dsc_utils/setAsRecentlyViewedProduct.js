@@ -1,7 +1,7 @@
 export default async function setAsRecentlyViewedProduct(storeHash, accessToken, customerId, productId, todayDate){
     const logTitle = " setAsRecentlyViewedProductt() ";
     try {
-        const requestUrl = "https://3158-119-153-103-211.ngrok.io/api/bigcommerce/set_recently_viewed_items";
+        const requestUrl = "https://f52f-119-153-103-211.ngrok.io/api/bigcommerce/set_recently_viewed_items";
         const requestHeaders = {
             'Access-Control-Allow-Origin': "*",
             'Access-Control-Allow-Methods': 'PUT, POST, PATCH, DELETE, GET',

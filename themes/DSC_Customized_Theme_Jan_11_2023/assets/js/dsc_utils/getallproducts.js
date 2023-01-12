@@ -5,7 +5,7 @@ export default async function getAllProducts(storeHash, accessToken) {
             storeHash,
             accessToken,
         };
-        return fetch("https://3158-119-153-103-211.ngrok.io/api/bigcommerce/get_products", {
+        return fetch("https://f52f-119-153-103-211.ngrok.io/api/bigcommerce/get_products", {
             method: "POST",
             headers: {
                 'Access-Control-Allow-Origin': "*",

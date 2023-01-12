@@ -6,7 +6,7 @@ const requestBody = {
     accessToken,
 };
 // console.log('requestBody', requestBody); 
-return fetch("https://3158-119-153-103-211.ngrok.io/api/bigcommerce/get_brands", {
+return fetch("https://f52f-119-153-103-211.ngrok.io/api/bigcommerce/get_brands", {
   method: "POST",
   headers: {
       'Access-Control-Allow-Origin': "*",

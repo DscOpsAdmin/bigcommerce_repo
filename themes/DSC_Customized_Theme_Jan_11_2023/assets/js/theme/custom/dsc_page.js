@@ -7,21 +7,21 @@ import {
 } from './../../theme/global/modal';
 import DataTable from "../../lib/jquery.dataTables.min.js"
 export default class ProductCustom extends PageManager {
+    logTitle = " dsc_page.js :: ";
     constructor(context) {
         super(context);
     }
     onReady() {
-       /*  const $customerviewed = $('[customer-viewed-products]');
-        // console.log('$customerviewed in dsc-page', $customerviewed)
-        console.log('$customerviewed Length',$customerviewed.length)
-        if ($customerviewed.length == 1) 
-        {
-            customerViewedProducts();
-        }
-        console.log('working dsc page') */
         var logTitle = "ProductCustom :: onReady() ";
         try {
-            // console.log(logTitle + "this.context", this.context);
+            console.log(logTitle + "this.context", this.context);
+            const $customerviewed = $('[customer-viewed-products]');
+            // console.log('$customerviewed in dsc-page', $customerviewed)
+            console.log('$customerviewed Length',$customerviewed.length)
+            if ($customerviewed.length == 1) {
+                customerViewedProducts(this.context);
+            }
+            console.log('working dsc page');
             $('#example').DataTable();
             this.bindEvents(this.context.newProducts);
         } catch (e) {

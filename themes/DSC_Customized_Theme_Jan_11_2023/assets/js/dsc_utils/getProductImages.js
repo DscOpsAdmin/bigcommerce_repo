@@ -7,7 +7,7 @@ const requestBody = {
     productId
 };
 console.log('requestBody', requestBody); 
-fetch("https://6b4e-119-153-103-211.ngrok.io/api/bigcommerce/get_product_images", {
+fetch("https://f52f-119-153-103-211.ngrok.io/api/bigcommerce/get_product_images", {
   method: "POST",
   headers: {
       'Access-Control-Allow-Origin': "*",
