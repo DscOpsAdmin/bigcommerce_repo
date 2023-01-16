@@ -1,0 +1,230 @@
+[{
+    "type": "array",
+    "label": "Carousel",
+    "id": "slides",
+    "defaultCount": 2,
+    "entryLabel": "Slide",
+    "thumbnail": {
+        "type": "image",
+        "valueKey": "imageUrl.src"
+    },
+    "schema": [
+        {
+        "type": "tab",
+        "label": "Content",
+        "sections": [
+            {
+                "label": "Banner",
+                "settings": [
+                    {
+                        "type": "imageManager",
+                        "id": "dscimageUrl",
+                        "default": {
+                          "src": "https://images.unsplash.com/photo-1487700160041-babef9c3cb55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
+                          "type": "IMAGE_MANAGER"
+                        }
+                      }
+                ]
+            },
+            {
+                "label": "Pointer 1",
+                "settings": [
+                    {
+                        "type": "input",
+                        "label": "PDP link",
+                        "id": "pdpLink1"
+                      },
+                      {
+                        "type": "input",
+                        "label": "Product Name",
+                        "id": "productname1"
+                      },
+                      {
+                        "type": "number",
+                        "label": "Top",
+                        "id": "top1",
+                        "default": {
+                          "value": "",
+                          "type": "px"
+                        },
+                        "typeMeta": {
+                          "parseType": "integer"
+                        }
+                      },
+                      {
+                        "type": "number",
+                        "label": "Left",
+                        "id": "left1",
+                        "default": {
+                          "value": "",
+                          "type": "px"
+                        },
+                        "typeMeta": {
+                          "parseType": "integer"
+                        }
+                      }
+                    
+                ]
+            },
+            {
+                "label": "Pointer 2",
+                "settings": [
+                    {
+                        "type": "input",
+                        "label": "PDP link",
+                        "id": "pdpLink2"
+                      },
+                      {
+                        "type": "input",
+                        "label": "Product Name",
+                        "id": "productname2"
+                      },
+                      {
+                        "type": "number",
+                        "label": "Top",
+                        "id": "top2",
+                        "default": {
+                          "value": "",
+                          "type": "px"
+                        },
+                        "typeMeta": {
+                          "parseType": "integer"
+                        }
+                      },
+                      {
+                        "type": "number",
+                        "label": "Left",
+                        "id": "left2",
+                        "default": {
+                          "value": "",
+                          "type": "px"
+                        },
+                        "typeMeta": {
+                          "parseType": "integer"
+                        }
+                      }
+                    
+                ]
+            },
+            {
+                "label": "Pointer 3",
+                "settings": [
+                    {
+                        "type": "input",
+                        "label": "PDP link",
+                        "id": "pdpLink3"
+                      },
+                      {
+                        "type": "input",
+                        "label": "Product Name",
+                        "id": "productname3"
+                      },
+                      {
+                        "type": "number",
+                        "label": "Top",
+                        "id": "top3",
+                        "default": {
+                          "value": "",
+                          "type": "px"
+                        },
+                        "typeMeta": {
+                          "parseType": "integer"
+                        }
+                      },
+                      {
+                        "type": "number",
+                        "label": "Left",
+                        "id": "left3",
+                        "default": {
+                          "value": "",
+                          "type": "px"
+                        },
+                        "typeMeta": {
+                          "parseType": "integer"
+                        }
+                      }
+                    
+                ]
+            },
+            {
+                "label": "Pointer 4",
+                "settings": [
+                    {
+                        "type": "input",
+                        "label": "PDP link",
+                        "id": "pdpLink4"
+                      },
+                      {
+                        "type": "input",
+                        "label": "Product Name",
+                        "id": "productname4"
+                      },
+                      {
+                        "type": "number",
+                        "label": "Top",
+                        "id": "top4",
+                        "default": {
+                          "value": "",
+                          "type": "px"
+                        },
+                        "typeMeta": {
+                          "parseType": "integer"
+                        }
+                      },
+                      {
+                        "type": "number",
+                        "label": "Left",
+                        "id": "left4",
+                        "default": {
+                          "value": "",
+                          "type": "px"
+                        },
+                        "typeMeta": {
+                          "parseType": "integer"
+                        }
+                      }
+                    
+                ]
+            },
+            {
+                "label": "Pointer 5",
+                "settings": [
+                    {
+                        "type": "input",
+                        "label": "PDP link",
+                        "id": "pdpLink5"
+                      },
+                      {
+                        "type": "input",
+                        "label": "Product Name",
+                        "id": "productname5"
+                      },
+                      {
+                        "type": "number",
+                        "label": "Top",
+                        "id": "top5",
+                        "default": {
+                          "value": "",
+                          "type": "px"
+                        },
+                        "typeMeta": {
+                          "parseType": "integer"
+                        }
+                      },
+                      {
+                        "type": "number",
+                        "label": "Left",
+                        "id": "left5",
+                        "default": {
+                          "value": "",
+                          "type": "px"
+                        },
+                        "typeMeta": {
+                          "parseType": "integer"
+                        }
+                      }
+                ]
+            }
+        ]
+    }]
+}]

@@ -1,0 +1,171 @@
+<style>
+    .container {
+        position: relative;
+    }
+
+    .container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .container .btn {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: white;
+        color: white;
+        font-size: 16px;
+        padding: 0px 9px;
+        border: none;
+        cursor: pointer;
+        border-radius: 45px;
+        text-align: center;
+        display: inline-block;
+
+    }
+
+    .btn .tooltiptext {
+
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .btn .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    .container .btn:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .mySlides {
+        display: none
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+        background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+</style>
+<div class="container">
+    <div class="slideshow-container">
+        {{#each slides}}
+        <div class="mySlides fade">
+            <img src={{dscimageUrl.src}} style="width:100%">
+            {{#if top1.value}}
+            <a target="_blank" class="btn"
+                style="top: {{top1.value}}{{top1.type}}; left: {{left1.value}}{{left1.type}};"
+                href="{{pdpLink1}}">*<span class="tooltiptext">{{productname1}}</span></a>
+            {{/if}}
+            {{#if top2.value}}
+            <a target="_blank" class="btn"
+                style="top: {{top2.value}}{{top2.type}}; left: {{left2.value}}{{left2.type}};"
+                href="{{pdpLink2}}">*<span class="tooltiptext">{{productname2}}</span></a>
+            {{/if}}
+            {{#if top3.value}}
+            <a target="_blank" class="btn"
+                style="top: {{top3.value}}{{top3.type}}; left: {{left3.value}}{{left3.type}};"
+                href="{{pdpLink3}}">*<span class="tooltiptext">{{productname3}}</span></a>
+            {{/if}}
+            {{#if top4.value}}
+            <a target="_blank" class="btn"
+                style="top: {{top4.value}}{{top4.type}}; left: {{left4.value}}{{left4.type}};"
+                href="{{pdpLink4}}">*<span class="tooltiptext">{{productname4}}</span></a>
+            {{/if}}
+            {{#if top5.value}}
+            <a target="_blank" class="btn"
+                style="top: {{top5.value}}{{top5.type}}; left: {{left5.value}}{{left5.type}};"
+                href="{{pdpLink5}}">*<span class="tooltiptext">{{productname5}}</span></a>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+</div>
+<br>
+<div style="text-align:center">
+    {{#each slides}}
+    <span class="dot" onclick="currentSlide({{@index}}+1)"></span>
+    {{/each}}
+</div>
+
+<script>
+    try {
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    } catch (e) {
+        console.error("error is", e);
+    }
+</script>
