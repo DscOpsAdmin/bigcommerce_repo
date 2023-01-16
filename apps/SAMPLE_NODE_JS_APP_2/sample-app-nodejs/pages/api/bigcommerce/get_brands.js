@@ -24,6 +24,7 @@ export default async function get_brands(req, res) {
             })
             .then(response => response.json())
             .then(responseObj => {
+                console.log("responseObj", responseObj)
                 res.json(responseObj)
             })
         }
